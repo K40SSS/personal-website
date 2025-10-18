@@ -11,6 +11,7 @@ body{
     color: white;
     background-color: rgba(0, 0, 0, 0.884);
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 h1, h2, h3{
@@ -18,11 +19,11 @@ h1, h2, h3{
 }
 
 h2{
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 
 h3{
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 a{
@@ -31,7 +32,7 @@ a{
 }
 
 section{
-    padding: 40px 20px;
+    padding: 40px 40px;
     text-align: center;
 }
 
@@ -44,15 +45,15 @@ header{
     display: flex;
     justify-content: left;
     align-items: center;
-    height: 50px;
+    height: 3rem;
 }
 
 header h1{
     padding: 5px 30px;
-    display: block;
-    float: left;
+    display: flex;
+    justify-content: left;
     text-align: center;
-    border-right: solid 2px rgba(255, 255, 255, 0.305);
+    border-right: solid 0.1rem rgba(255, 255, 255, 0.305);
 }
 
 .nav-links{
@@ -76,14 +77,17 @@ header h1{
 /* ABOUT */
 .about{
     background: rgba(0, 0, 0, 0.312);
-    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5%;
     text-align: center;
-    overflow: hidden;
 }
 #about-text{
-    float: left;
-    padding-left: 30px;
-    width: 50%;
+    flex: 1 1 50%;
+    max-width: 50%;
+
 }
 #about-text p{
     font-size: 1.5em;
@@ -93,14 +97,17 @@ header h1{
 }
 #about-text a{
     padding: 10px;
-    font-size: 40px;
+    font-size: clamp(24px, 5vw, 40px);
 }
 .about img{
-    border-radius: 50px;
+    flex: 1 1 45%;
+    max-width: 45%;
+    height: auto;
+    border-style: solid;
     border-width: 5px;
-    border-style:solid;
+    border-radius: 50px;
+    object-fit: contain;
     border-color: rgba(255, 255, 255, 0.12);
-    height: 400px;
 }
 
 
@@ -120,4 +127,52 @@ footer{
     background-color: black;
     color: white;
     
+}
+@media (max-width: 800px){
+    h1{
+        font-size: clamp(1rem, 3vw, 1rem);
+        padding: 0px;
+        margin-bottom: 0px;   
+        white-space: nowrap;
+    }
+    h2{
+        font-size: 1.8rem;
+    }
+
+    h3{
+        font-size: 1.4rem;
+    }
+
+    .navbar a {
+        font-size: clamp(0.5rem, 3vw, 0.8rem);
+        padding: 5px;
+    }
+    .nav-links {
+        gap: 10px;
+        padding: 10px;
+    }
+
+
+    .about{
+        flex-direction: column;
+    }
+
+    #about-text{
+        min-width: 95%;
+    }
+    #about-text p{
+        width: 100%;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+    .about img{
+        min-width: 95%;
+        height: auto;
+        object-fit: contain;
+        border-style: solid;
+        border-width: 5px;
+        border-radius: 50px;
+        margin: 0;
+        padding: 0;
+    }
 }
